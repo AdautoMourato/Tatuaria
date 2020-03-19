@@ -2,14 +2,21 @@ package com.adauto.tatuaria.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Cliente implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+		@Id
+		private String cpf;
+	
 		private String nome;
 		private int idade;
 		private String sexo;
-		private String cpf;
 		private String login;
 		private String senha;
 		
