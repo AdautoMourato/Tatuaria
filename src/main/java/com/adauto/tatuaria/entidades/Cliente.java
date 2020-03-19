@@ -12,7 +12,7 @@ public class Cliente implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 		@Id
-		private String cpf;
+		private Long cpf;
 	
 		private String nome;
 		private int idade;
@@ -30,7 +30,7 @@ public class Cliente implements Serializable{
 			
 		}
 
-		public Cliente(String nome, int idade, String sexo, String cpf, String login, String senha, String parteCorpo,
+		public Cliente(String nome, int idade, String sexo, Long cpf, String login, String senha, String parteCorpo,
 				String descrição) {
 			super();
 			this.nome = nome;
@@ -68,11 +68,11 @@ public class Cliente implements Serializable{
 			this.sexo = sexo;
 		}
 
-		public String getCpf() {
+		public Long getCpf() {
 			return cpf;
 		}
 
-		public void setCpf(String cpf) {
+		public void setCpf(Long cpf) {
 			this.cpf = cpf;
 		}
 
