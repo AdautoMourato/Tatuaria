@@ -26,16 +26,10 @@ public class ClienteResource {
 		
 		Cliente obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
-		
-//		
-//		Cliente cli1 = new Cliente("joao", 12, "Masculino", (long) 112632, "joao@gmail.com", "123456", "cabeça", "quero q ela seja grande e bla bla bla");
-//		Cliente cli2 = new Cliente("Pedro", 12, "Masculino", (long) 1154411, "pedro@gmail.com", "1111", "cabeça", "quero q ela seja grande e bla bla bla");
-//		
-//		List<Cliente> lista = new ArrayList<>();
-//		lista.add(cli1);
-//		lista.add(cli2);
-//		
-//		
-		
+			
 	}
+	
+	
+	
+	
 }
