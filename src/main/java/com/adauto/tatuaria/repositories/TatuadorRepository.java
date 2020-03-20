@@ -3,9 +3,9 @@ package com.adauto.tatuaria.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.adauto.tatuaria.entidades.Cliente;
+import com.adauto.tatuaria.entidades.Tatuador;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
+public interface TatuadorRepository extends JpaRepository<Tatuador, Integer>{
 
 }

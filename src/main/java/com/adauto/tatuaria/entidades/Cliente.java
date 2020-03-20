@@ -1,21 +1,28 @@
 package com.adauto.tatuaria.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 
 @Entity
 public class Cliente implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
 		@Id
-		private Long cpf;
+		@GeneratedValue(strategy=GenerationType.IDENTITY)
+		private Integer id;
+		
+		private Integer cpf;
 	
 		private String nome;
-		private int idade;
+		private Integer idade;
 		private String sexo;
 		private String login;
 		private String senha;
@@ -25,23 +32,28 @@ public class Cliente implements Serializable{
 		private String parteCorpo;
 		private String descrição;
 		
+		@ManyToMany(mappedBy = "clientes")
+		private List<Tatuador> tatuadores = new ArrayList<>();
 		
 		public Cliente() {
 			
 		}
 
-		public Cliente(String nome, int idade, String sexo, Long cpf, String login, String senha, String parteCorpo,
-				String descrição) {
+
+		public Cliente(Integer id, Integer cpf, String nome, Integer idade, String sexo, String login, String senha,
+				String parteCorpo, String descrição) {
 			super();
+			this.id = id;
+			this.cpf = cpf;
 			this.nome = nome;
 			this.idade = idade;
 			this.sexo = sexo;
-			this.cpf = cpf;
 			this.login = login;
 			this.senha = senha;
 			this.parteCorpo = parteCorpo;
 			this.descrição = descrição;
 		}
+
 
 
 		public String getNome() {
@@ -52,11 +64,11 @@ public class Cliente implements Serializable{
 			this.nome = nome;
 		}
 
-		public int getIdade() {
+		public Integer getIdade() {
 			return idade;
 		}
 
-		public void setIdade(int idade) {
+		public void setIdade(Integer idade) {
 			this.idade = idade;
 		}
 
@@ -68,11 +80,11 @@ public class Cliente implements Serializable{
 			this.sexo = sexo;
 		}
 
-		public Long getCpf() {
+		public Integer getCpf() {
 			return cpf;
 		}
 
-		public void setCpf(Long cpf) {
+		public void setCpf(Integer cpf) {
 			this.cpf = cpf;
 		}
 
@@ -110,14 +122,27 @@ public class Cliente implements Serializable{
 		public void setDescrição(String descrição) {
 			this.descrição = descrição;
 		}
+		
+	
+		
+
+		public List<Tatuador> getTatuadores() {
+			return tatuadores;
+		}
+
+		public void setTatuadores(List<Tatuador> tatuadores) {
+			this.tatuadores = tatuadores;
+		}
+
 
 		@Override
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
-			result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
+			result = prime * result + ((id == null) ? 0 : id.hashCode());
 			return result;
 		}
+
 
 		@Override
 		public boolean equals(Object obj) {
@@ -128,13 +153,14 @@ public class Cliente implements Serializable{
 			if (getClass() != obj.getClass())
 				return false;
 			Cliente other = (Cliente) obj;
-			if (cpf == null) {
-				if (other.cpf != null)
+			if (id == null) {
+				if (other.id != null)
 					return false;
-			} else if (!cpf.equals(other.cpf))
+			} else if (!id.equals(other.id))
 				return false;
 			return true;
 		}
-		
+
+	
 		
 }
